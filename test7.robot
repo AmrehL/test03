@@ -4,6 +4,7 @@ Library         String
 Library         REST
 Library         BuiltIn
 Library         sha.py
+Library         tranString.py
 
 
 *** Variables ***
@@ -62,7 +63,7 @@ ASynceWorkerFirst
     ...     os_type                 android
     ...     lumpsum_email           test@test.com
     Set Headers                     ${header}
-    Post    http://10.88.40.76/LumpsumWS/Service.asmx/StartUpApplication   
+    Post    http://10.88.40.96/LumpsumWS/Service.asmx/StartUpApplication   
 
     ${out}              Output                          response body    string
     # log to console      \n StartApplication(return-full)\n ${out}
@@ -103,7 +104,7 @@ CallCmd
     ${input}=           Create Dictionary               param=${input}
     log to console      <Input> ${input}
     Set Headers         ${header}
-    Post                http://10.88.40.76/LumpsumWS/Service.asmx/GetCmdValue               ${input}
+    Post                http://10.88.40.96/LumpsumWS/Service.asmx/GetCmdValue               ${input}
     ${output}           Output                          response body    string
     ${output}           Convert To String               ${output}
     ${output}           Replace String                  ${output}   u'      "
