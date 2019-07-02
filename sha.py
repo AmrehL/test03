@@ -20,6 +20,9 @@ def encrypt(key, source, encode=True):
 
 
 def decrypt(key, source, decode=True):
+    str = source
+    if len(str) == 0 :
+        return ""
     if decode:
         source = base64.b64decode(source.encode("UTF-8"))    
     key = getHashSha256(key)   
